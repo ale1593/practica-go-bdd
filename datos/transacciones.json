@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "nombre": "Carlos",
+        "tipo": "Retiro",
+        "monto": 50,
+        "resultado": "Éxito",
+        "mensaje": "Retiro realizado correctamente",
+        "saldo_anterior": 100,
+        "saldo_posterior": 50,
+        "fecha_hora": "2026-11-09T19:44:42.2009834-05:00"
+    },
+    {
+        "id": 2,
+        "nombre": "Maria",
+        "tipo": "Abono",
+        "monto": 30,
+        "resultado": "Éxito",
+        "mensaje": "Abono realizado correctamente",
+        "saldo_anterior": 100,
+        "saldo_posterior": 130,
+        "fecha_hora": "2026-11-09T19:47:19.499493-05:00"
+    },
+    {
+        "id": 3,
+        "nombre": "Maria",
+        "tipo": "Retiro",
+        "monto": 200,
+        "resultado": "Fallo",
+        "mensaje": "Retiro rechazado por fondos insuficientes",
+        "saldo_anterior": 100,
+        "saldo_posterior": 100,
+        "fecha_hora": "2026-11-09T19:49:01.9926342-05:00"
+    },
+    {
+        "id": 4,
+        "nombre": "Pedro",
+        "tipo": "Retiro",
+        "monto": -20,
+        "resultado": "Error",
+        "mensaje": "Retiro rechazado por monto negativo",
+        "saldo_anterior": 100,
+        "saldo_posterior": 100,
+        "fecha_hora": "2026-11-09T19:50:37.6230395-05:00"
+    },
+    {
+        "id": 5,
+        "nombre": "Sofia",
+        "tipo": "Abono",
+        "monto": 0,
+        "resultado": "Error",
+        "mensaje": "Abono rechazado por monto cero",
+        "saldo_anterior": 100,
+        "saldo_posterior": 100,
+        "fecha_hora": "2026-11-09T19:51:38.6320256-05:00"
+    },
+    {
+        "id": 6,
+        "nombre": "Maria",
+        "tipo": "Retiro",
+        "monto": 200,
+        "resultado": "Fallo",
+        "mensaje": "Retiro rechazado por fondos insuficientes",
+        "saldo_anterior": 100,
+        "saldo_posterior": 100,
+        "fecha_hora": "2026-11-09T19:52:36.8896364-05:00"
+    }
+]
