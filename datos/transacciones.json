@@ -98,5 +98,65 @@
         "saldo_anterior": 0,
         "saldo_posterior": 100,
         "fecha_hora": "2026-11-19T14:57:27.2317546-05:00"
+    },
+    {
+        "id": 10,
+        "cuenta_id": "9c8c6433639ad7b5e077ce5dedc9ddd4",
+        "nombre": "isabelalexandra",
+        "tipo": "Abono",
+        "monto": 500,
+        "resultado": "Éxito",
+        "mensaje": "Abono realizado correctamente.",
+        "saldo_anterior": 0,
+        "saldo_posterior": 500,
+        "fecha_hora": "2026-11-19T16:30:14.3059353-05:00"
+    },
+    {
+        "id": 11,
+        "cuenta_id": "9c8c6433639ad7b5e077ce5dedc9ddd4",
+        "nombre": "isabelalexandra",
+        "tipo": "Retiro",
+        "monto": 50,
+        "resultado": "Éxito",
+        "mensaje": "Retiro realizado correctamente.",
+        "saldo_anterior": 500,
+        "saldo_posterior": 450,
+        "fecha_hora": "2026-11-19T16:35:10.7434171-05:00"
+    },
+    {
+        "id": 12,
+        "cuenta_id": "9c8c6433639ad7b5e077ce5dedc9ddd4",
+        "nombre": "isabelalexandra",
+        "tipo": "Retiro",
+        "monto": -2,
+        "resultado": "Error",
+        "mensaje": "no se pueden retirar cantidades negativas",
+        "saldo_anterior": 450,
+        "saldo_posterior": 450,
+        "fecha_hora": "2026-11-19T16:36:44.9621808-05:00"
+    },
+    {
+        "id": 13,
+        "cuenta_id": "9c8c6433639ad7b5e077ce5dedc9ddd4",
+        "nombre": "isabelalexandra",
+        "tipo": "Abono",
+        "monto": 50,
+        "resultado": "Éxito",
+        "mensaje": "Abono realizado correctamente.",
+        "saldo_anterior": 450,
+        "saldo_posterior": 500,
+        "fecha_hora": "2026-11-19T16:36:49.7516181-05:00"
+    },
+    {
+        "id": 14,
+        "cuenta_id": "9c8c6433639ad7b5e077ce5dedc9ddd4",
+        "nombre": "isabelalexandra",
+        "tipo": "Abono",
+        "monto": 0,
+        "resultado": "Error",
+        "mensaje": "el monto del abono debe ser mayor que cero",
+        "saldo_anterior": 500,
+        "saldo_posterior": 500,
+        "fecha_hora": "2026-11-19T16:36:53.0630637-05:00"
     }
 ]

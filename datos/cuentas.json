@@ -5,5 +5,19 @@
         "usuario": "isabel",
         "password_hash": "pbkdf2-sha256$600000$Rvh+swDHaSrwVUqV9+5iIA$1tSWdkSmY/kgP54Js6JIVcivJd3lLo4WRj4mr2D7Z9U",
         "saldo": 100
+    },
+    {
+        "id": "64fe96125f7d0201f37fff956015c2e6",
+        "nombre": "alexandra",
+        "usuario": "alexandra",
+        "password_hash": "pbkdf2-sha256$600000$0sdqaDDeeo6PI2z+gQxyZw$tADWNnOfoRuOjfwOo2v/+bLsC0agiY2JPlKImtHQbj0",
+        "saldo": 0
+    },
+    {
+        "id": "9c8c6433639ad7b5e077ce5dedc9ddd4",
+        "nombre": "isabelalexandra",
+        "usuario": "isabelalexandra",
+        "password_hash": "pbkdf2-sha256$600000$Omb1zcio+IyvhrAwTMMOpQ$XLrm+xg/IsIY/GvS80Xos6L94KAjBwUfz39pQR7jabM",
+        "saldo": 500
     }
 ]
