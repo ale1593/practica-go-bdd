@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema Bancario</title>
+    <link rel="stylesheet" href="/static/css/estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor encabezado-interior">
+            <a class="marca" href="/">Sistema Bancario</a>
+            <div class="sesion-usuario">
+                <span class="titular">Cuenta de {{.Nombre}} (@{{.Usuario}})</span>
+                <form action="/logout" method="post">
+                    <button class="boton-sesion" type="submit">Cerrar sesión</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main class="contenedor contenido">
+        <section class="resumen" aria-labelledby="titulo-saldo">
+            <div>
+                <p class="etiqueta">Saldo disponible</p>
+                <h1 id="titulo-saldo">${{printf "%.2f" .Saldo}}</h1>
+                <p class="subtexto">Titular: {{.Nombre}} · Cuenta {{.IDCuenta}}</p>
+            </div>
+            <span class="insignia">Cuenta activa</span>
+        </section>
+
+        {{if .Mensaje}}
+        <div class="aviso {{if eq .Estado "Éxito"}}aviso-exito{{else if eq .Estado "Fallo"}}aviso-fallo{{else}}aviso-error{{end}}" role="status">
+            <strong>{{.Estado}}:</strong> {{.Mensaje}}
+        </div>
+        {{end}}
+
+        <section class="operaciones" aria-label="Operaciones bancarias">
+            <article class="panel">
+                <h2>Retirar efectivo</h2>
+                <p>Indica el monto que deseas retirar de tu cuenta.</p>
+                <form action="/retiro" method="post">
+                    <label for="monto-retiro">Monto</label>
+                    <div class="entrada-monto">
+                        <span aria-hidden="true">$</span>
+                        <input id="monto-retiro" name="monto" type="number" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <button class="boton boton-oscuro" type="submit">Realizar retiro</button>
+                </form>
+            </article>
+
+            <article class="panel">
+                <h2>Abonar en efectivo</h2>
+                <p>Indica el monto que deseas agregar a tu cuenta.</p>
+                <form action="/abono" method="post">
+                    <label for="monto-abono">Monto</label>
+                    <div class="entrada-monto">
+                        <span aria-hidden="true">$</span>
+                        <input id="monto-abono" name="monto" type="number" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <button class="boton boton-verde" type="submit">Realizar abono</button>
+                </form>
+            </article>
+        </section>
+
+        <section class="panel historial" aria-labelledby="titulo-historial">
+            <div class="historial-cabecera">
+                <div>
+                    <h2 id="titulo-historial">Historial de transacciones</h2>
+                    <p>Operaciones registradas en la cuenta.</p>
+                </div>
+                <a class="enlace-historial" href="/historial">Ver datos JSON</a>
+            </div>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titular</th>
+                            <th>Operación</th>
+                            <th>Monto</th>
+                            <th>Resultado</th>
+                            <th>Mensaje</th>
+                            <th>Saldo anterior</th>
+                            <th>Saldo posterior</th>
+                            <th>Fecha y hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range .Transacciones}}
+                        <tr>
+                            <td>{{.ID}}</td>
+                            <td>{{.Nombre}}</td>
+                            <td>{{.Tipo}}</td>
+                            <td>${{printf "%.2f" .Monto}}</td>
+                            <td><span class="resultado resultado-{{if eq .Resultado "Éxito"}}exito{{else if eq .Resultado "Fallo"}}fallo{{else}}error{{end}}">{{.Resultado}}</span></td>
+                            <td>{{.Mensaje}}</td>
+                            <td>${{printf "%.2f" .SaldoAnterior}}</td>
+                            <td>${{printf "%.2f" .SaldoPosterior}}</td>
+                            <td>{{.FechaHora.Format "02/01/2006 15:04:05"}}</td>
+                        </tr>
+                        {{else}}
+                        <tr>
+                            <td class="sin-registros" colspan="9">Todavía no hay transacciones registradas.</td>
+                        </tr>
+                        {{end}}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">Demostración académica · Sistema Bancario</div>
+    </footer>
+</body>
+</html>

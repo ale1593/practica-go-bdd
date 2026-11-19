@@ -64,5 +64,39 @@
         "saldo_anterior": 100,
         "saldo_posterior": 100,
         "fecha_hora": "2026-11-09T19:52:36.8896364-05:00"
+    },
+    {
+        "id": 7,
+        "nombre": "Cliente Demo",
+        "tipo": "Retiro",
+        "monto": 50,
+        "resultado": "Éxito",
+        "mensaje": "Retiro realizado correctamente.",
+        "saldo_anterior": 1000,
+        "saldo_posterior": 950,
+        "fecha_hora": "2026-11-18T16:32:36.1061945-05:00"
+    },
+    {
+        "id": 8,
+        "nombre": "Cliente Demo",
+        "tipo": "Abono",
+        "monto": -1,
+        "resultado": "Error",
+        "mensaje": "el monto del abono debe ser mayor que cero",
+        "saldo_anterior": 950,
+        "saldo_posterior": 950,
+        "fecha_hora": "2026-11-18T16:37:46.4942179-05:00"
+    },
+    {
+        "id": 9,
+        "cuenta_id": "fc1af5b108bc919fbcb58fe512508546",
+        "nombre": "isabel",
+        "tipo": "Abono",
+        "monto": 100,
+        "resultado": "Éxito",
+        "mensaje": "Abono realizado correctamente.",
+        "saldo_anterior": 0,
+        "saldo_posterior": 100,
+        "fecha_hora": "2026-11-19T14:57:27.2317546-05:00"
     }
 ]

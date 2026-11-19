@@ -1,0 +1,9 @@
+[
+    {
+        "id": "fc1af5b108bc919fbcb58fe512508546",
+        "nombre": "isabel",
+        "usuario": "isabel",
+        "password_hash": "pbkdf2-sha256$600000$Rvh+swDHaSrwVUqV9+5iIA$1tSWdkSmY/kgP54Js6JIVcivJd3lLo4WRj4mr2D7Z9U",
+        "saldo": 100
+    }
+]

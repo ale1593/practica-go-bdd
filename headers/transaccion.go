@@ -10,6 +10,7 @@ import (
 // Transaccion representa una operación bancaria realizada
 type Transaccion struct {
 	ID             int       `json:"id"`
+	CuentaID       string    `json:"cuenta_id,omitempty"`
 	Nombre         string    `json:"nombre"`
 	Tipo           string    `json:"tipo"`
 	Monto          float64   `json:"monto"`
@@ -35,8 +36,29 @@ func GuardarTransacciones(transacciones []Transaccion, rutaArchivo string) error
 		return err
 	}
 
-	// Guardar el contenido en el archivo.
-	return os.WriteFile(rutaArchivo, datos, 0644)
+	temporal, err := os.CreateTemp(directorio, ".transacciones-*.tmp")
+	if err != nil {
+		return err
+	}
+	rutaTemporal := temporal.Name()
+	defer os.Remove(rutaTemporal)
+
+	if err := temporal.Chmod(0644); err != nil {
+		temporal.Close()
+		return err
+	}
+	if _, err := temporal.Write(datos); err != nil {
+		temporal.Close()
+		return err
+	}
+	if err := temporal.Sync(); err != nil {
+		temporal.Close()
+		return err
+	}
+	if err := temporal.Close(); err != nil {
+		return err
+	}
+	return os.Rename(rutaTemporal, rutaArchivo)
 }
 
 // RegistrarTransaccion: Agrega una operación al historial existente

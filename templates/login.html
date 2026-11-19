@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iniciar sesión · Sistema Bancario</title>
+    <link rel="stylesheet" href="/static/css/estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor encabezado-interior">
+            <a class="marca" href="/">Sistema Bancario</a>
+            <span class="titular">Banca personal</span>
+        </div>
+    </header>
+    <main class="contenedor auth-contenedor">
+        <section class="panel auth-panel">
+            <p class="etiqueta-auth">Bienvenido</p>
+            <h1>Iniciar sesión</h1>
+            <p>Accede a tu cuenta bancaria para consultar tu saldo y tus operaciones.</p>
+            {{if .Mensaje}}
+            <div class="aviso {{if eq .Estado "Éxito"}}aviso-exito{{else if eq .Estado "Fallo"}}aviso-fallo{{else}}aviso-error{{end}}" role="status">
+                <strong>{{.Estado}}:</strong> {{.Mensaje}}
+            </div>
+            {{end}}
+            <form action="/login" method="post" class="formulario-auth">
+                <label for="usuario">Nombre de usuario</label>
+                <input id="usuario" name="usuario" type="text" autocomplete="username" required>
+                <label for="contrasena">Contraseña</label>
+                <input id="contrasena" name="contrasena" type="password" autocomplete="current-password" required>
+                <button class="boton boton-oscuro" type="submit">Iniciar sesión</button>
+            </form>
+            <p class="auth-enlace">¿No tienes cuenta? <a href="/registro">Regístrate</a></p>
+        </section>
+    </main>
+    <footer class="pie">
+        <div class="contenedor">Demostración académica · Sistema Bancario</div>
+    </footer>
+</body>
+</html>

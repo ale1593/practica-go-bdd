@@ -13,6 +13,7 @@ func TestRegistrarTransaccion(t *testing.T) {
 	rutaArchivo := filepath.Join(t.TempDir(), "transacciones.json")
 
 	transaccion := Transaccion{
+		CuentaID:       "cuenta-123",
 		Nombre:         "Carlos",
 		Tipo:           "Abono",
 		Monto:          50.00,
@@ -48,6 +49,9 @@ func TestRegistrarTransaccion(t *testing.T) {
 	if transacciones[0].Nombre != "Carlos" {
 		t.Errorf("Nombre incorrecto: %s", transacciones[0].Nombre)
 	}
+	if transacciones[0].CuentaID != "cuenta-123" {
+		t.Errorf("CuentaID incorrecto: %s", transacciones[0].CuentaID)
+	}
 
 	if transacciones[0].FechaHora.IsZero() {
 		t.Error("La fecha y hora no fueron asignadas")
@@ -66,6 +70,7 @@ func TestConservarHistorialTransacciones(t *testing.T) {
 	}
 
 	segunda := Transaccion{
+		CuentaID:  "cuenta-maria",
 		Nombre:    "Maria",
 		Tipo:      "Retiro",
 		Monto:     200.00,
@@ -100,6 +105,9 @@ func TestConservarHistorialTransacciones(t *testing.T) {
 
 	if transacciones[0].Nombre != "Carlos" || transacciones[1].Nombre != "Maria" {
 		t.Error("No se conservaron correctamente las transacciones anteriores")
+	}
+	if transacciones[0].CuentaID != "" || transacciones[1].CuentaID != "cuenta-maria" {
+		t.Error("No se conservaron correctamente las asociaciones de cuenta")
 	}
 }
 
